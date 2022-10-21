@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý sản phẩm</title>
+</head>
+<style>
+     tr td {
+        border: white 1px solid;
+    }
+     table {
+         font-family: arial, sans-serif;
+         border-collapse: collapse;
+         width: 100%;
+     }
+     td, th {
+         border: 1px solid #dddddd;
+         text-align: left;
+         padding: 8px;
+     }
+     tr:nth-child(even) {
+         background-color: #dddddd;
+     }
+
+
+
+</style>
+<body>
+<h1>Danh sách sản phẩm</h1>
+
+<input id="newP" placeholder="thêm sản phẩm">
+<button onclick="createNewproduct()">Thêm</button>
+<p id="sumOfProduct"></p>
+<table>
+    <tr>
+        <td>Tên sản phẩm</td>
+    </tr>
+    <tbody id="product">
+
+    </tbody>
+
+</table>
+<script>
+    let productList = ["SamSung", "Iphone", "Oppo", "Nokia"];
+
+    function showProduct() {
+        let content = "";
+        for (let i = 0; i < productList.length; i++) {
+            content +=
+                ' <tr>\n' +
+                '            <td>' + productList[i] + '</td>\n' +
+                '            <td><button onclick="editProduct(' + i + ' )">Sửa</td>\n' +
+                '            <td><button onclick="deteleProduct(' + i + ' )" >Xóa</td>\n' +
+                '        </tr>'
+        }
+        document.getElementById("product").innerHTML = content;
+        document.getElementById("sumOfProduct").innerText = " hiện có " + productList.length + " sản phẩm"
+    }
+
+    showProduct()
+
+    function createNewproduct() {
+        let newP = document.getElementById("newP").value;
+        productList.push(newP);
+        showProduct()
+        document.getElementById("newP").value = ""
+    }
+
+    function deteleProduct(index) {
+        productList.splice(index, 1)
+        showProduct()
+    }
+
+    function editProduct(index) {
+        let edit = prompt("nhập vào đây")
+        productList[index]=edit
+        showProduct()
+    }
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="Bài 1" onclick="bai1()">Viết hàm tính bình phương của một số bất kỳ được đưa vào. Gọi hàm
+vừa xây dựng được.<br>
+<input type="button" value="Bài 2" onclick="bai2()">Viết hàm tính diện tích, hàm tính chu vi hình tròn. Gọi hàm vừa xây
+dựng được<br>
+<input type="button" value="Bài 3" onclick="bai3()">Viết hàm tính giai thừa của một số nguyên bất kỳ được đưa vào. Gọi
+hàm vừa xây dựng được.<br>
+<input type="button" value="Bài 4" onclick="bai4()">Viết hàm kiểm tra xem ký tự nhập vào có phải là ký tự số không. Nếu
+là ký tự số hàm trả về true, ngược lại trả về false.<br>
+<input type="button" value="Bài 5" onclick="bai5()">Viết hàm nhận vào 3 số nguyên bất kỳ, trả về số nguyên có giá trị
+nhỏ nhất.<br>
+<input type="button" value="Bài 6" onclick="bai6()">Viết hàm nhận vào một số, kiểm tra xem nếu số đưa vào có phải là
+nguyên dương không. Nếu là nguyên dương trả về true, ngược lại trả về false.<br>
+<input type="button" value="Bài 7" onclick="bai7()"> Viết hàm truyền vào 2 số nguyên bất kì, thực hiện đổi chỗ hai số
+nguyên đó.<br>
+<input type="button" value="Bài 8" onclick="bai8()">Viết hàm truyền vào mảng số nguyên bất kỳ, sau đó đảo ngược mảng số
+nguyên đó.<br>
+<input type="button" value="Bài 9" onclick="bai9()">Viết hàm truyền vào một mảng ký tự, và một ký tự bất kỳ, kiểm tra
+xem ký tự bất kỳ đó có nằm trong mảng không. Nếu có trả về số lần xuất hiện của ký tự đó, nếu không trả về -1.<br>
+
+
+<script>
+
+    //bài 1
+    function binhphuong(a) {
+        let result = a ** 2
+        return result
+    }
+
+    function bai1() {
+        let a = +prompt("nhập số")
+        let result = binhphuong(a)
+        alert("bình phương của : " + a + " là = " + result)
+    }
+
+    // bài 2
+    function dienTich(r, pi) {
+        let S = r * r * pi;
+        return S
+    }
+
+    function chuVi(r, pi) {
+        let C = 2 * r * pi
+        return C
+    }
+
+    function bai2() {
+        const pi = 3.14
+        let r = +prompt("nhập bán kính")
+        let chuvi = chuVi(r, pi)
+        let dientich = dienTich(r, pi)
+        document.write("chu vi hình tròn là : " + chuvi + "<br>")
+        document.write("diện tích hình tròn là : " + dientich + "<br>")
+    }
+
+    //bài 3
+
+
+    function factorial(so) {
+        let giaithua = 1
+        if (so >= 1) {
+            for (let i = 1; i <= so; i++) {
+                giaithua = giaithua * i
+            }
+        } else if (so == 0) {
+            giaithua = 1
+        } else {
+            return "Giai thừa không xác định được"
+        }
+        return giaithua
+    }
+
+    function bai3() {
+        let so = +prompt("Nhập vào một số tính giai thừa")
+        let gt = factorial(so)
+        document.write("Giai thừa của " + so + " = " + gt)
+    }
+
+    //bài 4
+
+
+    function checkKytu(i) {
+        if (i % 2 == 0 || i % 2 == 1) {
+            return true
+        }
+        return false
+    }
+
+    function bai4() {
+        let i = prompt("nhập vào")
+        let check = checkKytu(i)
+        if (check == true) {
+            alert(i + " là số")
+        } else {
+            alert(i + " là kí tự")
+        }
+    }
+
+    //bài 5
+
+
+    function checkSomin(mangso) {
+        let backup
+        for (let i = 0; i < mangso.length; i++) {
+            backup = mangso[0]
+            if (mangso[i] < backup) {
+                backup = mangso[i]
+            }
+        }
+        return backup
+    }
+
+    function bai5() {
+        let mangso = []
+        for (let i = 0; i < 3; i++) {
+            mangso.push(+prompt("Nhập vào mảng số thứ " + i))
+        }
+        let min = checkSomin(mangso)
+        document.write("Mảng số gồm [" + mangso + "] <br>")
+        document.write("Số nhỏ nhất trong dãy là " + min)
+    }
+
+    //bài 6
+
+    function checkSnd(i) {
+        if (i>0) {
+            return true
+        }else {
+            return false
+        }
+
+    }
+    function bai6(){
+        let i = prompt("nhập số cần check")
+        let check = checkSnd(i)
+        if (check==true){
+            alert(i + " là số nguyên dương")
+        }else {
+            alert(i + " không là số nguyên dương")
+        }
+    }
+
+    // bài 7
+
+    function doiCho(a,b){
+        let mang = [b,a]
+        return mang
+    }
+
+    function bai7(){
+        let a = prompt("nhập số thứ nhất")
+        let b = prompt("nhập số thứ 2")
+        let result = doiCho(a,b);
+        alert("đổi chỗ 2 số : " + a + " và " + b + " kết quả thành : " + result[0] + " và " + result[1])
+    }
+
+
+    //bài 8
+    function daoNguoc(arr){
+        arr.reverse()
+        return arr
+    }
+    function bai8(){
+        let arr = [1,3,5,6,7,8,9,10]
+        document.write("mảng số là : " + arr)
+        let mangDao = daoNguoc(arr)
+        document.write("Sau khi đảo thì thành : " + mangDao)
+    }
+
+
+    //bài 9
+    function bai9() {
+        let mang = ['a','b','c','c','d','d','d','e','d','f']
+        let kytu = prompt("Nhập vào 1 ký tự bất kỳ")
+        document.write("Mảng gồm ["+mang+"]<br>")
+        let kiemtra = kiemTrakytu(kytu, mang)
+        if (kiemtra >0){
+            document.write("Có "+kiemtra+" ký tự "+kytu+" trong mảng")
+        }else{
+            document.write("Không có dữ liệu trong mảng")
+        }
+    }
+    function kiemTrakytu(kytu , mang) {
+        let dem = 0
+        for (let i = 0; i < mang.length; i++) {
+            if (kytu == mang[i]) {
+                dem++
+            }
+        }
+        if (dem > 0) {
+            return dem
+        }
+        return -1
+    }
+</script>
+
+</body>
+</html>
