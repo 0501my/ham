@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // function minArray(array) {
+    //     let min = array[0];
+    //     for (let i = 0; i < array.length; i++){
+    //         if(array[i] < min) {
+    //             min = array[i];
+    //     }
+    //     }
+    //     return min
+    // }
+    // let array = [1,2,4,-3,6,7,-9];
+    // let min = minArray(array);
+    // alert("giá trị nhỏ nhất trong mảng là : " +  min)
+    //
+    // function minArray1(arr1){
+    //     let min = arr1[0];
+    //     for (let i = 0; i < arr1.length; i++){
+    //         if(arr1[i] < min) {
+    //             min = arr1[i];
+    //         }
+    //     }
+    //     return min
+    // }
+    //
+    // let arr1 = [7, 12, 6, 9, 20, 56, 89];
+    // let min = minArray1(arr1);
+    // alert("giá trị nhỏ nhất trong mảng là : " +  min)
+
+    function minArray(arr) {
+        if(arr.length == 0)
+            return 'mảng rỗng';
+        let min = arr[0];
+
+        for(let i = 1; i < arr.length; i++){
+            if(arr[i] < min){
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+    let arr1 = [];
+    let min = minArray(arr1);
+    alert(min);
+</script>
+</body>
+</html>

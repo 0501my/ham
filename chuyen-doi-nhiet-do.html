@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+    <label>Đổi nhiệt độ</label>
+    <input type="text" id="input" placeholder="nhập nhiệt độ vào đây" oninput="Convecter(this.value)"
+           onchange="Convecter(this.value)">
+</p>
+<p>Nhiệt độ:<span id="output"></span></p>
+<script>
+    function Convecter(valNum) {
+        valNum = parseFloat(valNum);
+        document.getElementById("output").innerHTML = (valNum - 32) / 1.8;
+    }
+</script>
+</body>
+</html>
